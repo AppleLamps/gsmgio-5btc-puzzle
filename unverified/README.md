@@ -10,3 +10,4 @@ This folder contains a list of currently unverified, or unverifiable, solutions 
 | Yellow and Blue counts | Phase 0 | [Yellow/Blue counts](./phase0_yellow_blue_counts.md) | the 9 and 15 counts restate the URL's low bits, so they are not a new input |
 | fefefe parity | Phase 0 | [fefefe is 101 010](./phase0_fefefe_parity.md) | hex digit parity gives 42; explains a solver remark, and the 104 half does not hold |
 | EO11110 | Phase 3 | [11110](./11110.md)| Insights into 5binary |
+| Research status | All phases | [Findings and tested nulls](./gsmg-puzzle-kit-findings.md) | what decodes, the three locked envelopes with hashes, and every recorded null with its size and planted control (from the gsmg-puzzle-kit research, to 31 Oct 2026) |

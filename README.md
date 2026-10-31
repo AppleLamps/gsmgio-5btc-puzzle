@@ -26,9 +26,10 @@ Said another way: it would be bad puzzle design to require a solver to modify or
      * [Phase 2.2](#phase-22)
   4. [Phase 3](#phase-3---free-will) | [Notebook](./phase3.ipynb)
   5. [Phase 3.2](#phase-32) | [Notebook](./phase3.2.ipynb)
-  6. [Decentraland and the path to SalPhaseIon](#salphaseion) | [Notebook](./decentraland.ipynb)
+  6. [Decentraland and the path to SalPhaseIon](#decentraland) | [Notebook](./decentraland.ipynb)
   7. [SalPhaseIon](#salphaseion) | [Notebook](./salphaseion.ipynb)
   8. [Cosmic Duality](#cosmic-duality)
+- [Research status: what decodes, what is locked, what has failed](./unverified/gsmg-puzzle-kit-findings.md)
 - [Further Hints and 2020-present Timeline](#further-hints-and-2020-present-timeline)
   1. [2020-01-14](#2020-01-14-hint): Official Hint - Roses are Red Poem
   2. [2020-02-20](#2020-02-20-hint): Official Hint - Decentraland
@@ -41,26 +42,28 @@ Said another way: it would be bad puzzle design to require a solver to modify or
   9. [2021-03-01](#2021-03-01): Spelling and primes
   10. [2021-03-14](#2021-03-14): Salph is the last phase
   11. [2021-04-01](#2021-04-01): April Fools
-  12. [2021-05-06](#2021-05-06): Instructions for entry into SalPhaseIon
-  13. [2021-12-02](#2021-12-02-hint): Official Hint about another door
-  14. [2021-12-26](#2021-12-26-christmas-hint): Official Hint
-  15. [2022-12-10](#2022-12-10): Book cover about Cosmic Duality
-  16. [2023-01-09](#2023-01-09)
-  17. [2023-01-12](#2023-01-12---hint): Semi-Official Hint - prime number is a hint
-  18. [2023-02-23](#2023-02-23---official-hint): Official Hint - Reverse binary string
-  19. [2023-08-03](#2023-08-03-hint): Official Hint - Are you really looking for the btc...?
-  20. [2023-08-06](#2023-08-06-hint): Official Hint - The puzzle speaks for me
-  21. [2024-04-19](#2024-04-19): Second Halving
-  22. [2026-01-01](#2026-01-01-new-years-hint): 2026 New Year's Hint
-  23. [2026-07-12](#2026-07-12-hint): Official Hint - my close friends
-  24. [2026-07-12](#2026-07-12-other-message): other message
+  12. [2021-04-16](#2021-04-16): SalPhaseIon contents leak to Telegram
+  13. [2021-05-06](#2021-05-06): Instructions for entry into SalPhaseIon
+  14. [2021-12-02](#2021-12-02-hint): Official Hint about another door
+  15. [2021-12-26](#2021-12-26-christmas-hint): Official Hint
+  16. [2022-12-10](#2022-12-10): Book cover about Cosmic Duality
+  17. [2023-01-09](#2023-01-09)
+  18. [2023-01-12](#2023-01-12---hint): Semi-Official Hint - prime number is a hint
+  19. [2023-02-23](#2023-02-23---official-hint): Official Hint - Reverse binary string
+  20. [2023-08-03](#2023-08-03-hint): Official Hint - Are you really looking for the btc...?
+  21. [2023-08-06](#2023-08-06-hint): Official Hint - The puzzle speaks for me
+  22. [2024-04-10](#2024-04-10)
+  23. [2024-04-19](#2024-04-19-second-halving): Second Halving
+  24. [2026-01-01](#2026-01-01-new-years-hint): 2026 New Year's Hint
+  25. [2026-07-12](#2026-07-12-hint): Official Hint - my close friends
+  26. [2026-07-12](#2026-07-12-other-message): other message
 
 ![puzzle image](./puzzle.png)
 
 # Summary
 - The puzzle was published at https://gsmg.io/puzzle
 - The prize address with 5 BTC is [1GSMG1JC9wtdSwfwApgj2xcmJPAwx7prBe](https://www.blockchain.com/btc/address/1GSMG1JC9wtdSwfwApgj2xcmJPAwx7prBe)
-(The creator of the puzzle intended to halve the prize each time Bitcoin halving occurs. It happened for the first time on May 11, 2020, and a second time on Apr 19, 2024. the current value is 1.25 BTC)
+(The creator of the puzzle intended to halve the prize each time Bitcoin halving occurs. It happened for the first time on May 11, 2020, and a second time after the Apr 19/20, 2024 halving (the transaction confirmed Apr 24, 2024). The current value is 1.25 BTC; 1.25636967 BTC was recorded on 29 Sep 2026, the extra being dust sent to the address)
 - A potential second address located here for a value of 3.75 BTC [17ucy1K9ZUAaoY6JVtM932W9jUp5LXfyHa](https://www.blockchain.com/btc/address/17ucy1K9ZUAaoY6JVtM932W9jUp5LXfyHa)
 - Discussions on Reddit: [gsmgio_5_btc_puzzle](https://www.reddit.com/r/bitcoinpuzzles/comments/dfwcqk/gsmgio_5_btc_puzzle/), [gsmgio_5_btc_puzzle_challenge](https://www.reddit.com/r/bitcoinpuzzles/comments/bf7siz/gsmgio_5_btc_puzzle_challenge/)
 - Telegram channel: [invite link](https://t.me/joinchat/AJXEwEWK9gvhxwkgeXJUVw)
@@ -135,10 +138,12 @@ Useful OpenSSL flags:
 * First blob is raw bytes that needs to be decoded with IBM EBCDIC 1141
 * The resulting string is enciphered with a beaufort cipher (hinted at with "a beautiful strategic position")
 * The key for the cipher is hinted at with "why am I here", a quote from the matrix, the next line being the key "thematrixhasyou".
-* This reveals a long block of text that is yet to be solved
+* This reveals a long block of text: the Architect's speech from _The Matrix Reloaded_, with edits by the puzzle creator (it contains `TAKETHEPRIVATEKEY`)
 * The numbers are enciphered with a VIC Cipher. The numbers are hinted at earlier with "one for one, four for one", use number 1 and 4.
 * The alphabet is given below the numbers "fubcd oracle thingky mvps" which must be modified to remove the second "c" and replaced with either "." or "/", after which, the missing alphabet can be added to give "fubcdora/lethingkymvpszjqwx."
-* The resulting output has yet to be solved
+* Strictly this is a straddling checkerboard with blank columns 1 and 4 in the top row (key `FUBCDORA.LETHINGKYMVPS/JQZXW`). Of the 45 possible blank pairs only {1,4} reproduces the text. It decodes to:
+  `INCASEYOUMANAGETOCRACKTHISTHEPRIVATEKEYSBELONGTOHALFANDBETTERHALFANDTHEYALSONEEDFUNDSTOLIVE`
+* The last thing in the phase 3.2 plaintext is another `Salted__` envelope (the "Terminal", 80 bytes of ciphertext). It is still locked. See [the research status page](./unverified/gsmg-puzzle-kit-findings.md#4-the-three-locked-containers-v)
 
 ## Decentraland
 
@@ -161,7 +166,7 @@ leads us to SalPhaseIon using:
 ```
 SHA256(GSMGIO5BTCPUZZLECHALLENGE1GSMG1JC9wtdSwfwApgj2xcmJPAwx7prBe) = 89727c598b9cd1cf8873f27cb7057f050645ddb6a7a157a110239ac0152f6a32
 ->
-https://gmsg.io/89727c598b9cd1cf8873f27cb7057f050645ddb6a7a157a110239ac0152f6a32
+https://gsmg.io/89727c598b9cd1cf8873f27cb7057f050645ddb6a7a157a110239ac0152f6a32
 
 ```
 
@@ -179,11 +184,15 @@ https://gmsg.io/89727c598b9cd1cf8873f27cb7057f050645ddb6a7a157a110239ac0152f6a32
     1. agda = lastwordsbeforearchichoice
     2. cfob = thispassword
 * the remaining abba string is "enter"
-* everything else hasn't been solved
+* the `agda`/`cfob` rule in full: letters a..i are digits 1..9 and o is 0, the whole digit string is read as one decimal integer, then written as bytes
+* the plain-text pieces read `shabefourfirsthintisyourlastcommand` and `shabefanstoo`; with a1z26, `sha`+b(2)+ef(5,6) gives "sha256", so "sha256 our first hint is your last command" and (as a reading of `anstoo`) "sha256 the answer too"
+* the two base64 pieces join into a third `Salted__` envelope (80 bytes of ciphertext), still locked
+* the leading `dbbi...` block (91 letters) fits the poster's yellow/blue colour program at prime positions; the long `faed...` block (570 letters) has no known decode
+* how `matrixsumlist` and `lastwordsbeforearchichoice` are applied to build "thispassword" is unsolved. See [the research status page](./unverified/gsmg-puzzle-kit-findings.md) for what has been tried
 
 ## Cosmic Duality
 
-This stage is currently unsolved.
+This stage is currently unsolved. It is the second textarea on the SalPhaseIon page, a `Salted__` envelope of 1,328 bytes of ciphertext ([base64](./unverified/gsmg-puzzle-kit/cosmic-duality.b64)). No password is known.
 
 # Further Hints and 2020-present Timeline
 
